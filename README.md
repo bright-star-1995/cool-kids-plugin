@@ -1,3 +1,4 @@
+# Cool Kids Plugin
 Welcome to the Cool Kids Network.
 This is a wordpress plugin that offers cool kids network features.
 
