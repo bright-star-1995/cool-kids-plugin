@@ -20,19 +20,16 @@ Special roles like "Cooler Kid" and "Coolest Kid" can be assigned to users progr
 
 # The technical decisions you made and why.
 1. MVC (Model-View-Controller) OOP Development:
-
-Decision: Implementing MVC Architecture:
 Utilizing the MVC design pattern in Object-Oriented Programming (OOP) for this WordPress plugin provides a structured approach to development, separating concerns for improved code organization and maintainability.
-Justification:
-Model:
-Purpose: Represents the member data
-Implementation: Character data and user roles are managed within the model component. This encapsulation ensures a clear distinction between data handling and presentation logic.
-View:
-Purpose: Handles the presentation layer.
-Implementation: Templates for displaying character information, user profiles, and data based on the user's role are structured within the view component, including signup and login pages. This separation facilitates easy customization of the plugin's UI elements.
-Controller:
-Purpose: Acts as an intermediary between the model and view.
+Model: Represents the member data
+Character data and user roles are managed within the model component. This encapsulation ensures a clear distinction between data handling and presentation logic.
+View: Handles the presentation layer.
+Templates for displaying character information, user profiles, and data based on the user's role are structured within the view component, including signup and login pages. This separation facilitates easy customization of the plugin's UI elements.
+Controller: Acts as an intermediary between the model and view.
 Implementation: The controller component orchestrates user interactions, processes requests, and manipulates data flow between the model and view. It enforces role-based access controls and governs the assignment of special roles using the API.
+
+2. Plugin-based Development:
+   This project was strategically developed as a WordPress plugin to leverage the myriad benefits that such plugins offer, empowering website owners to seamlessly enhance their site's functionalities without the necessity of bespoke coding from the ground up. This versatile plugin is designed to seamlessly integrate into any WordPress project, facilitating the seamless implementation of the innovative Cool Kids Network.
 
 # How your solution achieves the admin’s desired outcome per the user story.
 The plugin's features align with the admin's desired outcome by:
