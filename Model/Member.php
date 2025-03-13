@@ -126,13 +126,18 @@ class Member
         global $wpdb;
         $new_user_id = -2;
 
-        if ($this->getMemberBy(['email'=> $email]) == 0 ) {
+        if ( $this->getMemberBy( [ 'email' => $email ] ) == 0 ) {
             $insert_data = [
             'email' => $email,
             'role' => Member::COOL_KID,
             ];
 
-            $response = wp_remote_get($this->api_url);
+            $args = array(
+                'timeout'       => 300,
+                'sslverify'     => false
+            ); 
+
+            $response = wp_remote_get( $this->api_url, $args );
             if (is_wp_error($response) ) {
                 //error_log( "Failed to fetch data: " . $this->api_url );
                 return -1;
