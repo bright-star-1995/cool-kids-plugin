@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
             var email = document.getElementById('login-email').value;
             if(validateEmail(email)) {
+                document.getElementById('login-err').innerHTML = 'Trying...';
                 fetch(urlVars.ajaxurl, {
                     method: 'POST',
                     headers: {
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('#register-but').forEach(function(link) {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            document.getElementById('register-err').innerHTML = '';
+            document.getElementById('register-err').innerHTML = 'Registering...';
             var email = document.getElementById('register-email').value;
             if(validateEmail(email)) {
                 fetch(urlVars.ajaxurl, {
