@@ -136,6 +136,9 @@ class MainController
                     ]
                 );
             },
+            'permission_callback' => function () {
+                return current_user_can('administrator');
+            }
             ]
         );
     }
