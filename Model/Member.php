@@ -74,7 +74,7 @@ class Member
     public function getMemberBy( $params )
     {
         global $wpdb;
-        $query = $wpdb->prepare("SELECT * FROM `$this->table_name`");
+        $query = "SELECT * FROM `$this->table_name`";
         $where = array();
         foreach ( $params as $key => $value ) {
             $where[] = "$key = '$value'";
@@ -82,9 +82,7 @@ class Member
         $where_clause = implode(" and ", $where);
 
         if (count($where) > 0 ) {
-            $query = $wpdb->prepare(
-                "SELECT * FROM `$this->table_name` where $where_clause"
-            );
+            $query = "SELECT * FROM `$this->table_name` where ". $where_clause;
         }
         $results = $wpdb->get_results($query);
         if (count($results) > 0 ) {
@@ -182,7 +180,7 @@ class Member
     public function getAllMembers()
     {
         global $wpdb;
-        $query = $wpdb->prepare("SELECT * FROM `$this->table_name`");
+        $query = "SELECT * FROM `$this->table_name`";
         $results = $wpdb->get_results($query);
         return $results;
     }
@@ -200,16 +198,14 @@ class Member
         $id = isset($_SESSION['member']->id) ? $_SESSION['member']->id : 0;
         $results = [];
         if ($role == Member::COOLER_KID ) {
-            $query = $wpdb->prepare(
-                "SELECT id, firstname, lastname, country, 
-				'-' as email, '-' as role FROM `$this->table_name`"
-            );
+            $query = "SELECT id, firstname, lastname, country, 
+				'-' as email, '-' as role FROM `$this->table_name`";
             if ($id != 0 ) {
                 $query .= ' where id <> '.$id;
             }
             $results = $wpdb->get_results($query);
         } else if ($role == Member::COOLEST_KID ) {
-            $query = $wpdb->prepare("SELECT * FROM `$this->table_name`");
+            $query = "SELECT * FROM `$this->table_name`";
             if ($id != 0 ) {
                 $query .= ' where id <> '.$id;
             }
